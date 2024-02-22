@@ -1,1 +1,145 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Téa Wright</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha384-uw1+sxa4f+8tSOlr+NY2j3kGazaSXYlkVv3lYN6Db2pKz3X9FdtujquidWHR2bj" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            font-size: medium;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            color: #333;
+            display: flex;
+            flex-direction: column; /* Arrange elements vertically */
+        }
+        p {
+            font-size: large;
+            margin: 0; /* Apply margin: 0; to all <p> elements */
+        }
+        header {
+            background-color: #f9d8e6; /* Lighter pink */
+            color: #333;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between; /* Align items horizontally */
+        }
+        header nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        header nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+        header nav ul li a {
+            color: #333;
+            text-decoration: none;
+        }
+        main {
+            padding-left:200px;
+            padding-right:200px;
+            display: flex;
+            flex-wrap: wrap; /* Wrap items if they exceed the width */
+            margin:0;
+        }
+
+        .bio {
+            flex: 1 1 calc(300px - 40px); /* Take remaining space, minimum width 300px */
+            margin-right: 20px;
+            margin-bottom: 20px; /* Added margin-bottom to create space between sections */
+        }
+        .scroll-box {
+            flex: 1 1 calc(300px - 40px); /* Take full width with padding */
+            max-height: 400px; /* Max height for scrolling */
+            padding: 20px;
+            background-color: #fff; /* White background */
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            overflow-y: auto; /* Add scrollbar if content exceeds box height */
+        }
+        section {
+            margin-bottom: 20px;
+            width: 100%; /* Make sure the sections take full width */
+            padding-left:200px;
+            padding-right:200px;
+        }
+        footer {
+            background-color: #f9d8e6; /* Lighter pink */
+            color: #333;
+            text-align: center;
+            padding: 10px 0;
+        }
+        .image-container {
+            margin: 20px; /* Add space between the image and the bio */
+            width: 300px; /* Width of image container */
+        }
+        .image-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .contact-info {
+            margin-top: 10px; /* Add space between the image and contact info */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="image-container">
+            <img src="tea_profile.jpg" alt="Your Name">
+            <div class="contact-info">
+                <p style="font-size: xx-large;font-weight: 800;">Téa Wright </p>
+                <p style="font-size: large;font-weight: 500;">テア・ライト</p>
+                <p style="font-size: large;font-weight: 500;">테아 라이트</p>
+                <p>tea.wright@colorado.edu</p>
+                <p>
+                    <a href="https://github.com/yourgithubusername"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/yourlinkedinusername"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://scholar.google.com/citations?user=yourgooglescholarid"><i class="fab fa-google"></i></a>
+                    <a href="https://twitter.com/yourtwitterhandle"><i class="fab fa-twitter"></i></a>
+                </p>
+            </div>
+        </div>
+        <section class="bio" style ="padding:0px">
+            <h2>About Me</h2>
+            <p>Hi! My name is Téa Wright and I am a Computer Science undergraduate student at University of Colorado, Boulder graduating in May 2024. 
+                My research interests include natural language processing, psycholinguistics, and endangered language revitalization.
+            </p>
+        </section>
+    </main>
+    <h2 style="margin-left: 20px;padding-left:200px;padding-right:200px;">News and Projects</h2>
+    <section class="scroll-box" style="padding-left:200px;padding-right:200px;">
+        <ul>
+            <li>Project 1</li>
+            <li>Project 2</li>
+            <!-- Add more projects or news items here -->
+        </ul>
+    </section>
+    <h2 style="margin-left:20px;padding-left:200px;padding-right:200px;">Awards</h2>
+    <section class="awards">
+        <ul>
+            <li>Outstanding Undergraduate Researcher - Honorable Mention</li>
+        </ul> 
+    </section>
+
+    <footer>
+        <p>&copy; 2024 My NLP Personal Website</p>
+    </footer>
+</body>
+</html>
