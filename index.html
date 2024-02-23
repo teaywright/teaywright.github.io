@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Téa Wright</title>
-    <link rel="icon" href="teacup.png" type="image/x-icon">
+    <link rel="icon" href="img/teacup.png" type="image/x-icon">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap">
     <style>
@@ -62,7 +62,8 @@
         }
         .image-container img {
             width: 300px;
-            height: auto;
+            height: 300px;
+            object-fit: cover;
             border-radius: 50%;
             margin-right: 20px;
         }
@@ -74,7 +75,7 @@
             text-align: justify;
             margin-bottom: 20px;
         }
-        .scroll-box, .awards, .pubs {
+        .news {
             max-width: 800px;
             padding: 20px;
             background-color: #fff;
@@ -84,14 +85,33 @@
             max-height: 300px;
             overflow-y: scroll;
         }
+        .awards, .pubs, .contact{
+            max-width: 800px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 1rem;;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            max-height: 1000px;
+            overflow-y: scroll;
+        }
+
         section {
             width: 100%;
         }
-        .fab i:hover {
-            color: black;
-            transition: 0.4s;
+        a:hover .fab, a:hover .fas {
+            color: hotpink !important;
             cursor: pointer;
         }
+        nav ul li a {
+            color: black; /* Set default color */
+            text-decoration: none;
+        }
+
+        nav ul li a:hover {
+            color: hotpink; /* Set color on hover */
+        }
+
         footer {
             background-color: #f9d8e6;
             color: #333;
@@ -105,17 +125,21 @@
     <header>
         <nav>
             <ul>
-                <li><a href="#contact">Contact</a></li>
                 <li><a href="TeaWright_CV_Feb2024.pdf">Curriculum Vitae</a></li>
+                <li><a href='#pubs'>Publications</a></li>
+                <li><a href='#awards'>Awards</a></li>
+                <li><a href='#contact'>Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <div class="image-container">
-            <img src="tea_profile.jpg" alt="Téa Wright">
+        <div class="image-container" id="image-container">
+            <img src="img/tea_profile.jpg" alt="Téa Wright" id="profile-image">
             <div class="contact-info">
                 <h1 style="margin:0">Téa Wright </h1>
+                <p style="font-size: 1rem;">テア・ライト</p>
+                <p style="font-size: 1rem;">테아 라이트</p>
                 <p style="font-size: 1rem;">tea.wright@colorado.edu</p>
                 <p>
                     <a href="https://github.com/teaywright"><i class="fab fa-github" style="font-size:40px;margin:10px;color:lightpink"></i></a>
@@ -130,10 +154,10 @@
                 My research interests include natural language processing, psycholinguistics, and endangered language revitalization.
                 
                 <br></br>I grew up in Boulder and love hiking, reading, watching movies, and playing piano. I also love to travel and learn new
-                languages!
+                languages! I'm currently learning Spanish, Japanese, and Korean.
             </p>
         </section>
-        <section class="scroll-box">
+        <section class="news">
             <h2>News</h2>
             <ul>
                 <li>12/10/23 - Presented my first paper 
@@ -144,7 +168,7 @@
                 <!-- Add more projects or news items here -->
             </ul>
         </section>
-        <section class="pubs">
+        <section class="pubs" id="pubs">
             <h2>Publications</h2>
             <ul>
              <li>Maria Valentini, Jennifer Weber, Jesus Salcido, Téa Wright, Eliana Colunga, and Katharina von der Wense. 
@@ -154,7 +178,7 @@
             </li>
             </ul> 
         </section>
-        <section class="awards">
+        <section class="awards" id="awards">
             <h2>Awards</h2>
             <ul>
                 <li><a href="https://cra.org/about/awards/outstanding-undergraduate-researcher-award/">
@@ -164,10 +188,32 @@
                     CU Boulder Esteemed Scholars Program</a> - President Joseph A. Sewall Award</li>
             </ul> 
         </section>
+        <section class="contact" id="contact">
+            <h2>Contact</h2>
+            <p>Please send me an email if you'd like to collaborate or chat :)</p>
+        </section>
     </main>
 
     <footer>
         <p>&copy; 2024 Téa Wright</p>
     </footer>
+    <script>
+        var images = ["img/tea_profile.jpg", "img/teainjapan.jpg","img/arimuseum.jpeg","img/kitties.jpg"]; // Add the paths to your images here
+        var currentIndex = 0;
+        var imageContainer = document.getElementById("image-container");
+        var profileImage = document.getElementById("profile-image");
+
+        // Function to change the photo when clicked
+        imageContainer.addEventListener("click", function() {
+            currentIndex = (currentIndex + 1) % images.length;
+            profileImage.src = images[currentIndex];
+        });
+
+        // Function to change the photo after a certain time period 
+        setInterval(function() {
+            currentIndex = (currentIndex + 1) % images.length;
+            profileImage.src = images[currentIndex];
+        }, 10000); 
+    </script>
 </body>
 </html>
