@@ -6,118 +6,131 @@
     <title>Téa Wright</title>
     <link rel="icon" href="img/teacup.png" type="image/x-icon">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary-bg: #f9d8e6;
+            --accent: hotpink;
+            --text-color: #333;
+            --card-bg: #fff;
+            --radius: 1.5rem;
+            --shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        * { box-sizing: border-box; }
         body {
-            font-family: 'Poppins', sans-serif;
-            font-size: large;
             margin: 0;
             padding: 0;
-            background-color:white;
-            color: #333;
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            background: #fbfbfb;
             line-height: 1.6;
         }
         header {
-            background-color: #f9d8e6;
-            color: #333;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            background: var(--primary-bg);
+            padding: 1rem 2rem;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
-        header h1 {
-            margin: 0;
-            font-size: 2rem;
-            font-weight: 700;
-        }
-        header nav ul {
-            list-style-type: none;
+        nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            list-style: none;
             margin: 0;
             padding: 0;
-            margin-top: 10px;
-            margin-bottom: 10px;
         }
-        header nav ul li {
-            display: inline;
-            margin-right: 20px;
-        }
-        header nav ul li a {
-            color: #333;
+        nav a {
             text-decoration: none;
-            font-size:large;
+            color: var(--text-color);
             font-weight: 600;
+            transition: color 0.3s;
         }
+        nav a:hover { color: var(--accent); }
         main {
-            padding: 20px;
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        .profile {
             display: flex;
-            flex-direction: column;
+            flex-wrap: wrap;
             align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
         }
-        a {
-            text-decoration: none;
-        }
-        .image-container {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-        .image-container img {
-            width: 300px;
-            height: 300px;
+        .profile img {
+            width: 200px;
+            height: 200px;
             object-fit: cover;
             border-radius: 50%;
-            margin-right: 20px;
-        }
-        .contact-info p {
-            margin: 5px 0;
-        }
-        .bio {
-            max-width: 800px;
-            text-align: justify;
-            margin-bottom: 20px;
-        }
-        .news {
-            max-width: 800px;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 1rem;;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-            max-height: 300px;
-            overflow-y: scroll;
-        }
-        .awards, .pubs, .contact{
-            max-width: 800px;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 1rem;;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-            max-height: 1000px;
-            overflow-y: scroll;
-        }
-
-        section {
-            width: 100%;
-        }
-        a:hover .fab, a:hover .fas {
-            color: hotpink !important;
+            border: 4px solid var(--accent);
+            transition: transform 0.5s;
             cursor: pointer;
         }
-        nav ul li a {
-            color: black; /* Set default color */
-            text-decoration: none;
+        .profile img:hover {
+            transform: scale(1.05) rotate(3deg);
         }
-
-        nav ul li a:hover {
-            color: hotpink; /* Set color on hover */
-        }
-
-        footer {
-            background-color: #f9d8e6;
-            color: #333;
+        .contact-info {
+            max-width: 400px;
             text-align: center;
-            padding: 10px 0;
-            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+            padding-top: 0.5rem;
+        }
+        .contact-info h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+        .contact-info p {
+            margin: 0.3rem 0;
+        }
+        .contact-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 0.5rem;
+        }
+        .contact-icons a {
+            font-size: 1.8rem;
+            color: var(--accent);
+            transition: color 0.3s;
+        }
+        .contact-icons a:hover { color: var(--text-color); }
+        section.card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+        section.card h2 {
+            margin-top: 0;
+            font-size: 1.8rem;
+            border-bottom: 2px solid var(--primary-bg);
+            padding-bottom: 0.5rem;
+        }
+        .card ul {
+            list-style: none;
+            margin: 1rem 0 0;
+            padding: 0;
+        }
+        .card li { margin: 0.8rem 0; }
+        .card a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        .card a:hover { color: var(--text-color); }
+        footer {
+            background: var(--primary-bg);
+            text-align: center;
+            padding: 1rem;
+            box-shadow: var(--shadow);
         }
     </style>
 </head>
@@ -126,107 +139,73 @@
         <nav>
             <ul>
                 <li><a href="TeaWrightCV_May2025.pdf">Curriculum Vitae</a></li>
-                <li><a href='#pubs'>Publications</a></li>
-                <li><a href='#awards'>Awards</a></li>
-                <li><a href='#contact'>Contact</a></li>
+                <li><a href="#pubs">Publications</a></li>
+                <li><a href="#awards">Awards</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
-
     <main>
-        <div class="image-container" id="image-container">
+        <div class="profile" id="image-container">
             <img src="img/tea_profile.jpg" alt="Téa Wright" id="profile-image">
             <div class="contact-info">
-                <h1 style="margin:0">Téa Wright </h1>
-                <p style="font-size: 1rem;">テア・ライト</p>
-                <p style="font-size: 1rem;">테아 라이트</p>
-                <p style="font-size: 1rem;">teaywright@berkeley.edu</p>
-                <p>
-                    <a href="https://github.com/teaywright"><i class="fab fa-github" style="font-size:40px;margin:10px;color:lightpink"></i></a>
-                    <a href="https://www.linkedin.com/in/teawright"><i class="fab fa-linkedin" style="font-size:40px;margin:10px;color:lightpink"></i></a>
-                    <a href="https://scholar.google.com/citations?user=R7E7_2EAAAAJ&hl=en"><i class="fas fa-graduation-cap" style="font-size:40px;margin:10px;color:lightpink"></i></a>
-                </p>
+                <h1>Téa Wright</h1>
+                <p>テア・ライト | 테아 라이트</p>
+                <p>teaywright@berkeley.edu</p>
+                <div class="contact-icons">
+                    <a href="https://github.com/teaywright"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/teawright"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://scholar.google.com/citations?user=R7E7_2EAAAAJ&hl=en"><i class="fas fa-graduation-cap"></i></a>
+                </div>
             </div>
         </div>
-        <section class="bio">
+        <section class="card bio">
             <h2>About Me</h2>
-            <p>Hi! I'm a PhD student at UC Berkeley advised by <a href="https://www.alanesuhr.com/">Alane Suhr</a> affiliated with
-                <a href="https://bair.berkeley.edu/">Berkeley AI Research</a> and <a href="https://nlp.cs.berkeley.edu/">Berkeley NLP</a>. 
-                I recieved my B.S. in Computer Science from the University of Colorado Boulder in May 2024 where I was advised by 
-                <a href="https://kelina.github.io/">Katharina von der Wense</a> in the <a href="https://nala-cub.github.io/">NALA</a> lab. My research interests broadly include 
-                natural language processing and machine learning. I have worked on NLP for education and low-resource langauge revitalization. I'm currently interested in cognitively inspired and multimodal approaches to NLP.
-                
-                <br></br>I grew up in Boulder, Colorado and love hiking, reading, watching movies, and playing piano. I also love to travel and learn new
-                languages! I'm currently learning Spanish, Japanese, and Korean :)
+            <p>Hi! I'm a PhD student at UC Berkeley advised by <a href="https://www.alanesuhr.com/">Alane Suhr</a>, affiliated with
+               <a href="https://bair.berkeley.edu/">Berkeley AI Research</a> and <a href="https://nlp.cs.berkeley.edu/">Berkeley NLP</a>.
+               I received my B.S. in Computer Science from the University of Colorado Boulder in May 2024 under
+               <a href="https://kelina.github.io/">Katharina von der Wense</a> in the NALA lab. My research interests broadly include natural
+                language processing and machine learning. More specifically, I have worked on NLP for education and low-resource langauge 
+                revitalization. I'm currently interested in cognitively inspired and multimodal approaches to NLP.
             </p>
+            <p>I grew up in Boulder, Colorado and enjoy hiking, reading, movies, piano, and travel. Currently learning Spanish, Japanese, and Korean.</p>
         </section>
-        <!-- <section class="news">
-            <h2>News</h2>
-            <ul>
-                <li>12/10/23 - Presented my first paper 
-                    <a href="https://arxiv.org/abs/2310.18502">On the Automatic Generation and Simplification of Children's Stories</a> 
-                    at EMNLP 2023 in Singapore!
-                </li>
-
-            </ul>
-        </section> -->
-        <section class="pubs" id="pubs">
+        <section class="card pubs" id="pubs">
             <h2>Publications</h2>
             <ul>
-                <li>
-                    <a href="https://aclanthology.org/2025.coling-main.540/"> Measuring Contextual Informativeness in Child-Directed Text</a>
-                    Maria Valentini*, <b>Téa Wright*</b>, Ali Marashian, Jennifer Ellis, Eliana Colunga, and Katharina von der Wense. 
-                    COLING, 2025.
-                </li>
-                <li>
-                    <a href="https://escholarship.org/uc/item/7v69f0dj">Evaluating LLMs as Tools to Support Early Vocabulary Learning. </a>
-                    Jennifer Weber, Maria Valentini, <b>Téa Wright</b>, Katharina von der Wense, and Eliana Colunga. 
-                    Proceedings of the Annual Meeting of the Cognitive Science Society, 2024.
-                </li>
-                <li>
-                    <a href="https://arxiv.org/abs/2310.18502">On the Automatic Generation and Simplification of Children's Stories.</a> 
-                    Maria Valentini, Jennifer Weber, Jesus Salcido, <b>Téa Wright</b>, Eliana Colunga, and Katharina von der Wense. 
-                    EMNLP, 2023.
-                </li>   
-            </ul> 
+                <li><a href="https://aclanthology.org/2025.coling-main.540/">Measuring Contextual Informativeness in Child-Directed Text</a>, COLING 2025.</li>
+                <li><a href="https://escholarship.org/uc/item/7v69f0dj">Evaluating LLMs as Tools to Support Early Vocabulary Learning</a>, CogSci 2024.</li>
+                <li><a href="https://arxiv.org/abs/2310.18502">On the Automatic Generation and Simplification of Children's Stories</a>, EMNLP 2023.</li>
+            </ul>
         </section>
-        <section class="awards" id="awards">
+        <section class="card awards" id="awards">
             <h2>Awards</h2>
             <ul>
-                <li><a href="https://www.nsfgrfp.org/">National Science Foundation Graduate Research Fellowship</a> - Honorable Mention (2025)</li>
-                <li>UC Berkeley Chancellor's Fellowship (2024-2025)</li>
-                <li><a href="https://cra.org/about/awards/outstanding-undergraduate-researcher-award/">
-                    CRA Outstanding Undergraduate Researcher Award</a> - Honorable Mention (2024)
-                </li>
-                
-            </ul> 
+                <li><a href="https://www.nsfgrfp.org/">NSF GRFP</a> - Honorable Mention (2025)</li>
+                <li>UC Berkeley Chancellor's Fellowship (2024–2025)</li>
+                <li><a href="https://cra.org/about/awards/outstanding-undergraduate-researcher-award/">CRA Outstanding Undergraduate Researcher Award</a> - Honorable Mention (2024)</li>
+            </ul>
         </section>
-        <section class="contact" id="contact">
+        <section class="card contact" id="contact">
             <h2>Contact</h2>
-            <p>Please send me an email if you'd like to chat :)</p>
+            <p>Feel free to <a href="mailto:teaywright@berkeley.edu">email me</a> if you'd like to connect!</p>
         </section>
     </main>
-
     <footer>
         <p>&copy; 2024 Téa Wright</p>
     </footer>
     <script>
-        var images = ["img/tea_profile.jpg", "img/teaonamountain.jpg", "img/kitties.jpg"]; // Add the paths to your images here
-        var currentIndex = 0;
-        var imageContainer = document.getElementById("image-container");
-        var profileImage = document.getElementById("profile-image");
-
-        // Function to change the photo when clicked
-        imageContainer.addEventListener("click", function() {
+        const images = ["img/tea_profile.jpg", "img/teaonamountain.jpg", "img/kitties.jpg"];
+        let currentIndex = 0;
+        const profileImage = document.getElementById("profile-image");
+        document.getElementById("image-container").addEventListener("click", () => {
             currentIndex = (currentIndex + 1) % images.length;
             profileImage.src = images[currentIndex];
         });
-
-        // Function to change the photo after a certain time period 
-        setInterval(function() {
+        setInterval(() => {
             currentIndex = (currentIndex + 1) % images.length;
             profileImage.src = images[currentIndex];
-        }, 10000); 
+        }, 10000);
     </script>
 </body>
 </html>
