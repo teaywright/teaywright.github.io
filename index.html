@@ -61,12 +61,12 @@
             flex-wrap: wrap;
             align-items: center;
             justify-content: center;
-            gap: 2rem;
+            gap: 3rem;
             margin-bottom: 1rem;
         }
         .profile img {
-            width: 200px;
-            height: 200px;
+            width: 280px;
+            height: 280px;
             object-fit: cover;
             border-radius: 50%;
             border: 4px solid var(--accent);
@@ -77,8 +77,8 @@
             transform: scale(1.05) rotate(3deg);
         }
         .contact-info {
-            max-width: 400px;
-            text-align: center;
+            max-width: 450px;
+            text-align: left;
             padding-top: 0.5rem;
         }
         .contact-info h1 {
@@ -91,7 +91,7 @@
         }
         .contact-icons {
             display: flex;
-            justify-content: center;
+            justify-content: flex-start;
             gap: 1.5rem;
             margin-top: 0.5rem;
         }
@@ -195,7 +195,7 @@
         <p>&copy; 2024 Téa Wright</p>
     </footer>
     <script>
-        const images = ["img/tea_profile.jpg", "img/teaonamountain.jpg", "img/kitties.jpg"];
+        const images = ["img/tea_headshot.jpg", "img/tea_profile.jpg", "img/teaonamountain.jpg", "img/kitties.jpg"];
         let currentIndex = 0;
         const profileImage = document.getElementById("profile-image");
         document.getElementById("image-container").addEventListener("click", () => {
