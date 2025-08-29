@@ -6,13 +6,13 @@
     <title>Téa Wright</title>
     <link rel="icon" href="img/teacup.png" type="image/x-icon">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-bg: #f9d8e6;
-            --accent: hotpink;
-            --text-color: #333;
-            --card-bg: #fff;
+            --primary-bg: #0b1b3b; /* deep navy for header/footer */
+            --accent: #1f6feb;    /* professional blue accent */
+            --text-color: #0f172a; /* slate-900 for readability on white */
+            --card-bg: #ffffff;
             --radius: 1.5rem;
             --shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
@@ -20,9 +20,9 @@
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
             color: var(--text-color);
-            background: #fbfbfb;
+            background: #ffffff;
             line-height: 1.6;
         }
         header {
@@ -43,13 +43,13 @@
         }
         nav a {
             text-decoration: none;
-            color: var(--text-color);
+            color: #ffffff;
             font-weight: 600;
             transition: color 0.3s;
         }
         nav a:hover { color: var(--accent); }
         main {
-            max-width: 1000px;
+            max-width: 1280px;
             margin: 2rem auto;
             padding: 0 1rem;
             display: grid;
@@ -57,19 +57,21 @@
             gap: 2rem;
         }
         .profile {
-            display: flex;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: 1fr;
             align-items: center;
             justify-content: center;
-            gap: 3rem;
+            gap: 2.5rem;
             margin-bottom: 1rem;
+            width: 100%;
         }
         .profile img {
-            width: 280px;
-            height: 280px;
+            width: 320px;
+            height: 320px;
             object-fit: cover;
-            border-radius: 50%;
-            border: 4px solid var(--accent);
+            border-radius: 0;
+            border: none;
+            box-shadow: var(--shadow);
             transition: transform 0.5s;
             cursor: pointer;
         }
@@ -77,14 +79,34 @@
             transform: scale(1.05) rotate(3deg);
         }
         .contact-info {
-            max-width: 450px;
+            max-width: 700px;
             text-align: left;
             padding-top: 0.5rem;
         }
         .contact-info h1 {
             margin: 0;
-            font-size: 2.5rem;
+            font-size: 2.75rem;
             font-weight: 700;
+        }
+        @media (min-width: 768px) {
+            .profile {
+                grid-template-columns: 380px 1fr;
+                gap: 3rem;
+            }
+            .profile img {
+                width: 360px;
+                height: 360px;
+            }
+            .profile-right {
+                grid-template-columns: minmax(260px, 360px) 1fr;
+                gap: 2rem;
+            }
+        }
+        .profile-right h2 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1.6rem;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 0.4rem;
         }
         .contact-info p {
             margin: 0.3rem 0;
@@ -101,6 +123,19 @@
             transition: color 0.3s;
         }
         .contact-icons a:hover { color: var(--text-color); }
+        .profile-right a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        .profile-right a:hover { color: var(--text-color); }
+        .profile-right {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            align-items: start;
+        }
         section.card {
             background: var(--card-bg);
             padding: 2rem;
@@ -110,7 +145,7 @@
         section.card h2 {
             margin-top: 0;
             font-size: 1.8rem;
-            border-bottom: 2px solid var(--primary-bg);
+            border-bottom: 2px solid #e2e8f0; /* light divider on white */
             padding-bottom: 0.5rem;
         }
         .card ul {
@@ -131,6 +166,27 @@
             text-align: center;
             padding: 1rem;
             box-shadow: var(--shadow);
+            color: #ffffff;
+        }
+        /* Publications grid */
+        .pubs ul {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .pubs li {
+            margin: 0; /* override default li margin */
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.75rem;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+            padding: 1rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .pubs li:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
         }
     </style>
 </head>
@@ -147,29 +203,30 @@
     </header>
     <main>
         <div class="profile" id="image-container">
-            <img src="img/tea_profile.jpg" alt="Téa Wright" id="profile-image">
-            <div class="contact-info">
-                <h1>Téa Wright</h1>
-                <p>テア・ライト | 테아 라이트</p>
-                <p>teaywright@berkeley.edu</p>
-                <div class="contact-icons">
-                    <a href="https://github.com/teaywright"><i class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/teawright"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://scholar.google.com/citations?user=R7E7_2EAAAAJ&hl=en"><i class="fas fa-graduation-cap"></i></a>
+            <img src="img/headshot.jpg" alt="Téa Wright" id="profile-image">
+            <div class="profile-right">
+                <div class="contact-info">
+                    <h1>Téa Wright</h1>
+                    <p>テア・ライト | 테아 라이트</p>
+                    <p>teaywright@berkeley.edu</p>
+                    <div class="contact-icons">
+                        <a href="https://github.com/teaywright"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/teawright"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://scholar.google.com/citations?user=R7E7_2EAAAAJ&hl=en"><i class="fas fa-graduation-cap"></i></a>
+                    </div>
+                </div>
+                <div class="about">
+                    <h2>About Me</h2>
+                    <p>Hi! I'm a PhD student at UC Berkeley advised by <a href="https://www.alanesuhr.com/">Alane Suhr</a>, affiliated with
+                       <a href="https://bair.berkeley.edu/">Berkeley AI Research</a> and <a href="https://nlp.cs.berkeley.edu/">Berkeley NLP</a>.
+                       I received my B.S. in Computer Science from the University of Colorado Boulder in May 2024 under
+                       <a href="https://kelina.github.io/">Katharina von der Wense</a> in the NALA lab. My research interests broadly include natural
+                        language processing and machine learning. I'm currently interested in cognitively inspired approaches to NLP.
+                    </p>
+                    <p>I grew up in Boulder, Colorado and enjoy hiking, reading, movies, piano, and travel. I'm currently learning Spanish, Japanese, and Korean!</p>
                 </div>
             </div>
         </div>
-        <section class="card bio">
-            <h2>About Me</h2>
-            <p>Hi! I'm a PhD student at UC Berkeley advised by <a href="https://www.alanesuhr.com/">Alane Suhr</a>, affiliated with
-               <a href="https://bair.berkeley.edu/">Berkeley AI Research</a> and <a href="https://nlp.cs.berkeley.edu/">Berkeley NLP</a>.
-               I received my B.S. in Computer Science from the University of Colorado Boulder in May 2024 under
-               <a href="https://kelina.github.io/">Katharina von der Wense</a> in the NALA lab. My research interests broadly include natural
-                language processing and machine learning. More specifically, I have worked on NLP for education and low-resource langauge 
-                revitalization. I'm currently interested in cognitively inspired and multimodal approaches to NLP.
-            </p>
-            <p>I grew up in Boulder, Colorado and enjoy hiking, reading, movies, piano, and travel. Currently learning Spanish, Japanese, and Korean.</p>
-        </section>
         <section class="card pubs" id="pubs">
             <h2>Publications</h2>
             <ul>
@@ -195,7 +252,7 @@
         <p>&copy; 2024 Téa Wright</p>
     </footer>
     <script>
-        const images = ["img/tea_headshot.jpg", "img/tea_profile.jpg", "img/teaonamountain.jpg", "img/kitties.jpg"];
+        const images = ["img/headshot.jpg", "img/teaonamountain.jpg", "img/kitties.jpg"];
         let currentIndex = 0;
         const profileImage = document.getElementById("profile-image");
         document.getElementById("image-container").addEventListener("click", () => {
